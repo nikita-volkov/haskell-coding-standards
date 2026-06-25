@@ -15,6 +15,9 @@
 
 # Unignore subtrees:
 !/.github/
+!/architecture/
+!/conventions/
+!/patterns/
 
 # Ignore noise:
 .DS_Store
