@@ -25,7 +25,7 @@ Rules that apply at the statement or expression level across all modules.
 
 ## Patterns
 
-Named, reusable module structures. Each pattern document is self-contained.
+Named, reusable module structures. Each pattern is optional — apply it when the described situation matches; do not force it onto code that does not need it. Each pattern document is self-contained.
 
 - [Aggregator Namespace](patterns/aggregator-namespace.md) — a namespace of implementors with a re-exporting root
 - [Execution Capability](patterns/execution-capability.md) — type classes that lift an abstraction into arbitrary execution contexts

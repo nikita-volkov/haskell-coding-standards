@@ -2,7 +2,11 @@
 
 ## Explicit Export Lists
 
-Every module MUST have an explicit export list. Implicit export of all definitions (`module Foo where` with no list) is prohibited.
+Every public module MUST have an explicit export list. Implicit export of all definitions (`module Foo where` with no list) is prohibited for public modules.
+
+A public module is one that forms part of the project's public API or is imported by callers outside its component.
+
+Small internal modules — for example, private helper sub-modules used by exactly one parent — MAY omit the export list. For those modules, an explicit export list is still encouraged when it meaningfully clarifies the API.
 
 An explicit export list is the module's public API declaration. It makes refactoring safe (internal helpers can be renamed freely), communicates intent to readers, and prevents accidental exposure.
 

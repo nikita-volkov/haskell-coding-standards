@@ -10,6 +10,10 @@ A prelude is warranted when an Aggregator Namespace pattern exists and its sub-m
 
 If only one or two modules would benefit, use explicit imports instead. A prelude earns its existence through visible repetition.
 
+## Adoption
+
+This pattern is optional. Create a prelude only when an Aggregator Namespace has enough sub-modules that the repeated unqualified imports are clearly visible. Do not create a prelude for a handful of files, and do not retrofit existing code solely to introduce one.
+
 ## Naming
 
 Preludes live in the `Preludes` namespace (plural). Each prelude is named after the pattern or namespace it serves.

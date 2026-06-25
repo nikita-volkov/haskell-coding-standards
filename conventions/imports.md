@@ -17,7 +17,7 @@ Everything else MUST be imported qualified.
 
 ### Local modules (same project)
 
-MUST be aliased by stripping the project root namespace prefix.
+The default alias is the module name with the project root namespace prefix stripped.
 
 ```haskell
 -- Project root: MyApp
@@ -25,7 +25,7 @@ import qualified MyApp.Domain.Types as Domain.Types
 import qualified MyApp.Domain.Types.Album as Domain.Types.Album
 ```
 
-When importing a parent namespace and its sub-modules, the child alias MUST be derived from the parent alias by appending the child component. This preserves the hierarchy at call sites.
+When importing a parent namespace and its sub-modules, the child alias SHOULD be derived from the parent alias by appending the child component. This preserves the hierarchy at call sites.
 
 ```haskell
 import qualified MyApp.Statements as Statements
@@ -34,6 +34,12 @@ import qualified MyApp.Statements.InsertAlbum as Statements.InsertAlbum
 -- Call site: the type and its module share the same prefix
 album :: Statements.InsertAlbum
 album = Statements.InsertAlbum.fromParams params
+```
+
+A shorter, conventional alias is permitted when the full name is long and the short form is unambiguous within the module.
+
+```haskell
+import qualified MyApp.PoloniexWsV3Protocol as Protocol
 ```
 
 ### External packages — well-named
@@ -52,16 +58,18 @@ val = PostgresqlTypes.Int4.fromInt32 42
 
 ### External packages — legacy-prefixed
 
-Modules under the legacy Haskell hierarchy prefixes (`Data`, `Control`, `System`, `Network`, `Text`, `Language`, `Numeric`, `Foreign`) MUST be aliased by stripping the prefix.
+Modules under the legacy Haskell hierarchy prefixes (`Data`, `Control`, `System`, `Network`, `Text`, `Language`, `Numeric`, `Foreign`) SHOULD be aliased by their conventional short name. Often this is the remainder after stripping the prefix, but well-known modules MAY use an even shorter alias when it is unambiguous and conventional in the project.
 
 ```haskell
 import qualified Data.Attoparsec.Text as Attoparsec.Text
-import qualified Data.Map.Strict as Map.Strict
+import qualified Data.Map.Strict as Map
+import qualified Data.Map.Lazy as Map.Lazy
 import qualified Control.Concurrent.STM as STM
 import qualified Data.Vector as Vector
+import qualified Network.WebSockets as Ws
 ```
 
-The legacy prefixes carry no semantic information — they are historical artefacts of pre-modern Hackage and MUST NOT appear at call sites.
+The legacy prefixes carry no semantic information — they are historical artefacts of pre-modern Hackage and SHOULD NOT appear at call sites. If both `Data.Map.Strict` and `Data.Map.Lazy` appear in the same module, use `Map.Strict` and `Map.Lazy` to keep them distinct.
 
 ## Individual Member Imports
 

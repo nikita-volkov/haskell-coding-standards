@@ -10,6 +10,10 @@ Use when logic needs to perform an effect that must not create a direct dependen
 
 Do not confuse with [Execution Capability](execution-capability.md) — Ports define what logic needs from outside; Execution Capabilities connect concrete abstractions together within a library.
 
+## Adoption
+
+This pattern is optional. Use it when the dependency-inversion benefits outweigh the indirection. Do not force Ports into code that has no infrastructure boundary, and do not retrofit an entire existing codebase solely to satisfy this pattern.
+
 ## Naming
 
 MUST follow the capability naming convention: third-person singular present tense verb phrase.

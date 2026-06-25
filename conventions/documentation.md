@@ -8,7 +8,9 @@ This includes: functions, types, type class methods, type aliases, and pattern s
 
 ## Module Header
 
-Every module MUST have a module-level Haddock comment stating its purpose in one paragraph.
+Every public module MUST have a module-level Haddock comment stating its purpose in one paragraph. Internal modules — for example, private helper sub-modules used by exactly one parent — SHOULD have one, but are not required to.
+
+A public module is one that forms part of the project's public API or is imported by callers outside its component.
 
 ```haskell
 -- |

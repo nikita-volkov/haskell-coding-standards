@@ -17,6 +17,7 @@ default-extensions:
   DeriveDataTypeable
   DeriveFoldable
   DeriveFunctor
+  DeriveAnyClass
   DeriveGeneric
   DeriveTraversable
   DerivingVia
@@ -35,6 +36,7 @@ default-extensions:
   MultiWayIf
   NamedFieldPuns
   NoFieldSelectors
+  NoImplicitPrelude
   NoMonomorphismRestriction
   NumericUnderscores
   OverloadedLabels
@@ -57,7 +59,11 @@ default-extensions:
 
 ### Notable semantics
 
+**`DeriveAnyClass`** — required for the `deriving anyclass` strategy. See [Deriving](deriving.md).
+
 **`NoFieldSelectors`** — record fields are not injected into the global namespace as selector functions. Fields are accessed via `OverloadedRecordDot` (`.` syntax) and used in record construction/update syntax. Eliminates field name collisions without prefixing.
+
+**`NoImplicitPrelude`** — disables the implicit import of `Prelude`. Required when using a domain-specific prelude (see [Preludes pattern](../patterns/preludes.md)); import the chosen prelude explicitly as the topic of the module.
 
 **`OverloadedRecordDot`** — enables `value.field` syntax for record access. Required companion to `NoFieldSelectors`.
 

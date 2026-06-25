@@ -2,9 +2,9 @@
 
 ## Formatter
 
-MUST use [Ormolu](https://github.com/tweag/ormolu) with zero configuration. What Ormolu produces is the style. No exceptions, no overrides.
+SHOULD use a formatter. [Ormolu](https://github.com/tweag/ormolu) is the preferred formatter and is recommended for new projects. If a project already uses a different formatter, continue using it consistently. What the chosen formatter produces is the style for that project.
 
-Run Ormolu on all `.hs` files before committing. CI MUST fail on unformatted files.
+Run the project's formatter on changed `.hs` files before committing. CI MAY enforce formatting.
 
 ## `do` Notation vs Applicative Style
 
