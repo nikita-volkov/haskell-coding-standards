@@ -50,3 +50,38 @@ do
 **`let` expressions** — use sparingly. Prefer `where` for anything that would create a nested `let ... in` chain. In `do` blocks, `let x = ...` (no `in`) is the standard form.
 
 MUST NOT use `where` inside a `do` block for values that are logically sequential — use `let` instead.
+
+## Helper Functions
+
+Every top-level definition joins the module's namespace — visible to imports and implicitly claiming to be a standalone concept. Helper functions used by only one caller do not earn that status and MUST be placed in that caller's `where` block instead.
+
+This keeps the module's real surface area apparent and prevents the namespace from filling with names that are meaningless outside their one use site.
+
+```haskell
+-- Bad: top-level helpers that belong to one caller
+renderPage :: Config -> Html
+renderPage config = header <> body <> footer
+  where
+    header = renderHeader config
+    body = renderBody config
+    footer = renderFooter config
+
+renderHeader :: Config -> Html  -- top-level, but only used by renderPage
+renderHeader config = ...
+
+renderBody :: Config -> Html
+renderBody config = ...
+
+renderFooter :: Config -> Html
+renderFooter config = ...
+
+-- Good: helpers scoped to their caller
+renderPage :: Config -> Html
+renderPage config = renderHeader config <> renderBody config <> renderFooter config
+  where
+    renderHeader cfg = ...
+    renderBody cfg = ...
+    renderFooter cfg = ...
+```
+
+Promote a helper to the top level only when it is used by more than one top-level definition or is exported.
