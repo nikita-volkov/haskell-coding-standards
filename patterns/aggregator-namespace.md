@@ -59,7 +59,7 @@ Use when sub-modules export a **bounded, predictable set of definitions** determ
 
 **Root module:** re-exports everything from all sub-modules.
 
-**Sub-modules:** export a fixed, pattern-defined set of types and instances. All exported names MUST be globally unambiguous without module context.
+**Sub-modules:** become hidden modules — they are not part of the public API and callers never import them directly. They export a fixed, pattern-defined set of types and instances. All exported names MUST be globally unambiguous without module context.
 
 **Primary type naming rule:** The primary type exported by each sub-module MUST be named after the module. Additional types follow the module name as a prefix.
 
