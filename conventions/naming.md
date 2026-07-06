@@ -90,7 +90,7 @@ Functions following the bracket pattern (acquire → use → release) MUST use t
 
 Type class names MUST be predicates — they qualify a type, they do not name a concept.
 
-**Prohibited:** noun names (`Vector`, `Container`), `-able` suffix (`Serializable`).
+**Prohibited:** noun names (`Vector`, `Container`).
 
 ### Identity and nature predicates
 
