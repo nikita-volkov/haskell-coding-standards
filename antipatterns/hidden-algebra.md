@@ -2,11 +2,11 @@
 
 ## Symptom
 
-A module is labeled a [Language Module](../patterns/language-module.md), but its typeclasses encode operations with strong laws, and the module is used mainly for folding, evaluating, or equational reasoning.
+A module is labeled a [Domain Language](../patterns/domain-language.md) or [Intermediate Representation](../patterns/intermediate-representation.md), but its typeclasses encode operations with strong laws, and the module is used mainly for folding, evaluating, or equational reasoning.
 
 ## Problem
 
-The center of gravity is operations and their laws, not the act of building domain expressions. Calling it a Language Module obscures the algebraic structure and misleads consumers about how to use it.
+The center of gravity is operations and their laws, not the act of building expressions in a vocabulary. Calling it a Domain Language or Intermediate Representation obscures the algebraic structure and misleads consumers about how to use it.
 
 ## Resolution
 
@@ -16,4 +16,5 @@ The center of gravity is operations and their laws, not the act of building doma
 
 ## See Also
 
-- [Language Module](../patterns/language-module.md)
+- [Domain Language](../patterns/domain-language.md)
+- [Intermediate Representation](../patterns/intermediate-representation.md)

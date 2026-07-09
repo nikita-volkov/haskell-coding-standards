@@ -2,9 +2,9 @@
 
 Misapplications of module roles and structures. Each anti-pattern names a common drift, explains why it fails, and points to the correct pattern.
 
-## Language Module
+## Domain Language & Intermediate Representation
 
-Misclassifications of the [Language Module](../patterns/language-module.md) pattern:
+Misclassifications of the [Domain Language](../patterns/domain-language.md) and [Intermediate Representation](../patterns/intermediate-representation.md) patterns — both share the same closed-vocabulary-plus-partial-grammar shape, so the same drifts apply to either:
 
 - [Premature Language Module](premature-language-module.md) — a vocabulary module with one incidental typeclass
 - [Hidden Algebra](hidden-algebra.md) — a module of law-governed operations labeled as a language

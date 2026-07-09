@@ -2,19 +2,20 @@
 
 ## Symptom
 
-A [Language Module](../patterns/language-module.md) accumulates effectful functions: database access, HTTP calls, file I/O, or other runtime concerns.
+A [Domain Language](../patterns/domain-language.md) or [Intermediate Representation](../patterns/intermediate-representation.md) module accumulates effectful functions: database access, HTTP calls, file I/O, or other runtime concerns.
 
 ## Problem
 
-The module is supposed to define a language — pure domain expressions. Effectful operations couple the language to a runtime and make it harder to test, interpret, or reuse the expressions.
+The module is supposed to define a language — pure expressions in a closed vocabulary. Effectful operations couple the language to a runtime and make it harder to test, interpret, or reuse the expressions.
 
 ## Resolution
 
 - Move effectful operations to a capability, service, or Port module.
-- Keep the Language Module pure; it defines what can be said, not how it is executed.
+- Keep the module pure; it defines what can be said, not how it is executed.
 
 ## See Also
 
-- [Language Module](../patterns/language-module.md)
+- [Domain Language](../patterns/domain-language.md)
+- [Intermediate Representation](../patterns/intermediate-representation.md)
 - [Port](../patterns/port.md)
 - [Execution Capability](../patterns/execution-capability.md)

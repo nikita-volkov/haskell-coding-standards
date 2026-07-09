@@ -31,7 +31,10 @@ Named, reusable module structures. Each pattern is optional — apply it when th
 - [Execution Capability](patterns/execution-capability.md) — type classes that lift an abstraction into arbitrary execution contexts
 - [Port](patterns/port.md) — type classes as interfaces between logic and infrastructure
 - [Preludes](patterns/preludes.md) — domain-specific prelude modules for aggregator namespaces
-- [Language Module](patterns/language-module.md) — a closed set of domain types related by typeclasses
+- [Domain Language](patterns/domain-language.md) — a closed set of domain types related by typeclasses
+- [Intermediate Representation](patterns/intermediate-representation.md) — the same shape, applied to a data-conversion pipeline stage
+- [Transport Representation](patterns/transport-representation.md) — wire-facing DTOs at a system boundary, one per format
+- [Lawful Conversion](patterns/lawful-conversion.md) — typeclasses (`Is`/`IsSome`/`IsMany`) for conversions graded by what they preserve
 
 ## Anti-patterns
 
@@ -55,4 +58,10 @@ Common misapplications of module roles and structures.
 
 **Component** — a cohesive unit in the logic DAG corresponding to one domain concept. May define types, Ports, and pure functions.
 
-**Language Module** — a module that exports a closed set of domain types together with the typeclasses and instances that relate them.
+**Domain Language** — a module that exports a closed set of domain types together with the typeclasses and instances that relate them.
+
+**Intermediate Representation** — the same shape as Domain Language, applied to one stage of a data-conversion pipeline (e.g. a compiler's AST, Core, or ANF).
+
+**Transport Representation** — a closed set of wire-facing DTOs at a system boundary (JSON, Binary, ...), each related to its Domain counterpart by a Lawful Conversion instance, with no internal grammar of its own.
+
+**Lawful Conversion** — the `Is`/`IsSome`/`IsMany` typeclass hierarchy for conversions between two types, graded by how much they preserve.

@@ -2,11 +2,11 @@
 
 ## Symptom
 
-A [Language Module](../patterns/language-module.md) exposes its typeclasses as extension points for downstream modules to implement with their own types.
+A [Domain Language](../patterns/domain-language.md) or [Intermediate Representation](../patterns/intermediate-representation.md) exposes its typeclasses as extension points for downstream modules to implement with their own types.
 
 ## Problem
 
-A Language Module is a closed world: its types and typeclasses evolve together. Once external types implement its classes, the module becomes an open-world typeclass hierarchy. Changes to the classes risk breaking downstream code, and the boundary between language and library interface blurs.
+Both patterns are a closed world: their types and typeclasses evolve together. Once external types implement its classes, the module becomes an open-world typeclass hierarchy. Changes to the classes risk breaking downstream code, and the boundary between language and library interface blurs.
 
 ## Resolution
 
@@ -15,6 +15,7 @@ A Language Module is a closed world: its types and typeclasses evolve together. 
 
 ## See Also
 
-- [Language Module](../patterns/language-module.md)
+- [Domain Language](../patterns/domain-language.md)
+- [Intermediate Representation](../patterns/intermediate-representation.md)
 - [Port](../patterns/port.md)
 - [Aggregator Namespace](../patterns/aggregator-namespace.md)

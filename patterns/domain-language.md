@@ -1,8 +1,10 @@
-# Pattern: Language Module
+# Pattern: Domain Language
 
 ## Intent
 
 A module that exports a closed set of domain types together with the typeclasses and instances that relate them. The types form the vocabulary; the typeclasses form a partial grammar for constructing, transforming, and categorizing expressions in that vocabulary.
+
+This is the domain-facing instance of a shape shared with [Intermediate Representation](intermediate-representation.md): a closed vocabulary plus a partial grammar. Domain Language models what business logic operates on; Intermediate Representation models a stage in a data-conversion pipeline. The two are documented separately because "when to use," naming, and module boundaries differ, even though the internal shape (closed world, partial grammar, build-first usage) is the same.
 
 ## When to Use
 
@@ -12,7 +14,7 @@ Use when:
 - The concepts are connected by structural relationships: construction, transformation, or categorization.
 - Consumers primarily **build** domain expressions, then **write** generic functions constrained by the module's typeclasses, then **read** the types.
 
-Do not use when the module is really a [Vocabulary module](#vocabulary-module), an [Algebra](#algebra), or a full [DSL](#dsl).
+Do not use when the module is really a vocabulary module with no real grammar (see [Premature Language Module](../antipatterns/premature-language-module.md)), an [Algebra](../antipatterns/hidden-algebra.md), or a full [DSL](../antipatterns/delayed-dsl.md).
 
 ## Naming
 
@@ -103,10 +105,12 @@ instance Discountable Order where
 
 ## Misclassifications
 
-See [Anti-patterns: Language Module](../antipatterns/README.md#language-module).
+See [Anti-patterns: Domain Language & Intermediate Representation](../antipatterns/README.md#domain-language--intermediate-representation).
 
 ## Related
 
+- [Intermediate Representation](intermediate-representation.md) — the same shape, applied to a pipeline stage instead of the domain
+- [Transport Representation](transport-representation.md) — for the wire-facing types at the boundary of the system, which do NOT share this shape
 - [Aggregator Namespace](aggregator-namespace.md) — a different pattern for uniform implementors of a single typeclass
 - [Port](port.md) — for interfaces between logic and infrastructure
 - [Execution Capability](execution-capability.md) — for lifting abstractions into execution contexts
