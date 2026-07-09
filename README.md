@@ -31,6 +31,7 @@ Named, reusable module structures. Each pattern is optional — apply it when th
 - [Execution Capability](patterns/execution-capability.md) — type classes that lift an abstraction into arbitrary execution contexts
 - [Port](patterns/port.md) — type classes as interfaces between logic and infrastructure
 - [Preludes](patterns/preludes.md) — domain-specific prelude modules for aggregator namespaces
+- [Language Module](patterns/language-module.md) — a closed set of domain types related by typeclasses
 
 ## Architecture
 
@@ -47,3 +48,5 @@ Named, reusable module structures. Each pattern is optional — apply it when th
 **Execution Capability** — a type class that grants an execution context the ability to run a specific abstraction (e.g., `RunsSession`).
 
 **Component** — a cohesive unit in the logic DAG corresponding to one domain concept. May define types, Ports, and pure functions.
+
+**Language Module** — a module that exports a closed set of domain types together with the typeclasses and instances that relate them.
