@@ -33,6 +33,12 @@ Named, reusable module structures. Each pattern is optional — apply it when th
 - [Preludes](patterns/preludes.md) — domain-specific prelude modules for aggregator namespaces
 - [Language Module](patterns/language-module.md) — a closed set of domain types related by typeclasses
 
+## Anti-patterns
+
+Common misapplications of module roles and structures.
+
+- [Anti-patterns](antipatterns/README.md) — index of misclassifications and module hygiene issues
+
 ## Architecture
 
 - [Logic Layer](architecture/logic-layer.md) — how to structure the pure logic layer of an application
