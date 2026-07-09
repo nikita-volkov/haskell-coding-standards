@@ -1,8 +1,8 @@
-# Haskell Design System
+# Haskell Coding Standards
 
-A personal, evolving design system for consistent Haskell, shared with agents and collaborators across projects.
+A personal, evolving set of coding standards for consistent Haskell, shared with agents and collaborators across projects.
 
-This is not a style guide in the sense of aesthetic preferences. It is a design system: conventions, patterns, and architecture that remove repeated decisions. Where a rule exists, follow it. Where a rule is absent, the gap is a future contribution.
+This is not a style guide in the sense of aesthetic preferences. It is a standards document: conventions, patterns, and architecture that remove repeated decisions. Where a rule exists, follow it. Where a rule is absent, the gap is a future contribution.
 
 ## Normative Language
 
